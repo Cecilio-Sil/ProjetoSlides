@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Entre-Em-Contato</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="/index.html">Home</a>
+            <a href="/contato.html">Entra em contato</a>
+            <a href="/creditos.html">Informações</a>
+        </nav>
+
+    </header>
+
+    <main class="contatoContainer">
+       
+        <div class="whatzappcontainer">
+
+            <h2>Contatos</h2>
+
+            <a class="whatbox" href="https://wa.me/62982457927?text=Ola! Recrutador é uma HONRA receber o seu contato." target="_blank">
+                <img src="/assets/whatsapp.png" alt="lOGO DO whatsapp">
+            </a>
+        
+
+            <form class="containerForm" action="https://api.staticforms.xyz/submit" method="POST">
+                <label for="name">Nome</label>
+                <input type="text" name="name" placeholder="Digite o seu nome" required>
+                <label for="E-mail">E-mail</label>
+                <input type="email" name="email" placeholder="Digite o seu e-mail" required>
+                <label for="Mensagem">Mensagem</label>
+                <textarea name="message" placeholder="Digite uma mensagem aqui!"></textarea>
+
+                <button type="submit">Enviar</button>
+
+                <input type="hidden" name="accessKey" value="7418c5f0-8172-4d04-bab7-1881cb020d8f">
+                <input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/agradecimento.html">  
+            </form>
+        </div>
+    </main>
+
+    <footer class="containerFooter">
+        <div class="footer">
+            <p>Direitos reservados &copy | Cecílio Neto 2025</p>
+        </div>
+    </footer>
+</body>
+
+</html>

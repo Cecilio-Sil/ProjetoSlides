@@ -1,0 +1,604 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    background-color: #000;
+    color: #eee;
+    font-size: 12px;
+    overflow: hidden;
+}
+
+header {
+    width: 80%;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    margin: auto;
+}
+
+header a {
+    color: #eee;
+    margin-right: 40px;
+    font-weight: 400;
+    font-size: 13px;
+}
+
+header a:hover {
+    color: #09d;
+    font-weight: bold;
+    transition: 1s;
+}
+
+.container {
+    height: 90vh;
+    width: 100vw;
+    margin-top: -50px;
+}
+
+.list {}
+
+.container .list .list-item {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        filter: brightness(75%);
+    }
+}
+
+.content {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    padding-right: 30%;
+    width: 80%;
+    color: #eee;
+    text-shadow: 0 5px 10px #0004;
+}
+
+.title {
+    font-size: 3em;
+    font-weight: 700;
+    line-height: 1em;
+
+    width: 700px;
+
+    margin-bottom: 30px;
+}
+
+.description {
+    font-size: 1.5em;
+    text-align: justify;
+}
+
+.button {
+    margin-top: 20px;
+    /* background-color: chartreuse;*/
+
+    button {
+        width: 130px;
+        height: 40px;
+        text-align: center;
+
+        font-size: 15px;
+
+        border: none;
+        border-radius: 10px;
+
+        background-color: #eee;
+        letter-spacing: 2px;
+        font-weight: 500;
+        cursor: pointer;
+
+        text-transform: uppercase;
+
+        &:hover {
+            background-color: transparent;
+            border: 2px solid #eee;
+            color: #eee;
+            transition: 0.7s;
+        }
+    }
+}
+
+.thumb {
+    display: flex;
+
+    position: absolute;
+    bottom: 50px;
+    left: 30%;
+
+    gap: 20px;
+}
+
+.thumb-item {
+    width: 120px;
+    height: 140px;
+    position: relative;
+    z-index: 3;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        filter: brightness(80%);
+    }
+}
+
+.thumb-content {
+    position: absolute;
+    bottom: 1px;
+
+    h3 {
+        font-size: 12px;
+    }
+}
+
+.arrows {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    position: absolute;
+    bottom: 100px;
+    left: 145px;
+    width: 100px;
+
+    button {
+        border-radius: 10px;
+        border: none;
+        padding: 12px 17px;
+        background-color: #eee4;
+        color: #eee;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 1.5em;
+
+        &:hover {
+            background-color: #eee;
+            color: #000;
+            transition: 0.7s;
+        }
+    }
+}
+
+
+.containerFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+
+    position: absolute;
+    background-color: #f4f0ec;
+
+    width: 100%;
+    height: 40px;
+}
+
+.footer {
+    width: 80%;
+    height: 100%;
+    
+
+    p {
+        text-align: center;
+        margin-top: 13px ;
+        width: 100%;
+        height: 35%;
+        font-size: 12px;
+        color: #000080;
+        font-weight: 600;
+    }
+}
+
+/* Movimento da Thumb */
+
+.container.next .thumb {
+    animation: effectNextThumb 0.6s linear 1 forwards;
+}
+
+@keyframes effectNextThumb {
+    from {
+        transform: translateX(150px);
+    }
+}
+
+/* Movimento última Thumb */
+
+.container.next .thumb .thumb-item:nth-last-child(1) {
+    animation: effectLastThumb 0.6s linear 1 forwards;
+}
+
+@keyframes effectLastThumb {
+    from {
+        width: 0;
+        opacity: 0;
+    }
+}
+
+/* Movimento do texto principais */
+
+.container .list .list-item:nth-last-child(1) .content .title,
+.container .list .list-item:nth-last-child(1) .content .description,
+.container .list .list-item:nth-last-child(1) .content .button {
+    transform: translateY(50px);
+    filter: blur(20px);
+    opacity: 0;
+    animation: showContent 0.5s 1s linear 1 forwards;
+
+}
+
+@keyframes showContent {
+    to {
+        transform: translateY(0);
+        filter: blur(0);
+        opacity: 1;
+    }
+}
+
+.container .list .list-item:nth-last-child(1) .content .title {
+    animation-delay: 1s;
+}
+
+.container .list .list-item:nth-last-child(1) .content .description {
+    animation-delay: 1.6s;
+}
+
+.container .list .list-item:nth-last-child(1) .content .button {
+    animation-delay: 2s;
+}
+
+
+/* imagem principal Next */
+.container.next .list .list-item:nth-last-child(1) img {
+    width: 120px;
+    height: 140px;
+    position: absolute;
+    bottom: 50px;
+    left: 30%;
+    border-radius: 30px;
+    animation: showMainImage 0.5s linear 1 forwards;
+}
+
+@keyframes showMainImage {
+    to {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+    }
+}
+
+/* imagem principal reversa da Back */
+.container.back .list .list-item:nth-child(1) img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    animation: hideMainImage 0.5s linear 1 forwards;
+}
+
+@keyframes hideMainImage {
+    to {
+        bottom: 50px;
+        left: 30%;
+        width: 120px;
+        height: 140px;
+        border-radius: 10px;
+    }
+}
+
+/*-------- Página de contato--------*/
+
+.contatoContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*flex-direction: column;*/
+
+    /*padding-left: 1rem;
+    padding-right: 1rem;*/
+    
+    height: 470px;
+    width: 100vw;   
+    
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.whatzappcontainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 30%;
+    height: 500px;
+
+    border-radius: 10px;
+    background-color: red;
+
+    padding: 5px 50px;
+
+    h2 {
+        font-size: 2rem;
+        color: #eee;
+        text-align: center;
+        line-height: 1.9;
+    }
+}
+
+.whatbox {
+     line-height: 2.0;
+    position: relative;
+
+    img {
+        width: 42px;
+        height: 42px; 
+    }
+}
+
+ .whatbox::before, .whatbox::after {
+    content: '';
+    display: block;
+    position: absolute;
+
+    left: -20px;
+    right: -20px;
+    top: -20px;
+    bottom: -20px;
+
+    border-radius: 50%;
+    border: 2px solid #25D366;
+
+    animation: animacao 1.5s linear infinite;
+    opacity: 0;
+}
+
+.whatbox::after {
+    animation-delay: .5s;
+}
+
+@keyframes animacao {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+.containerForm {
+    width: 100%;
+    height: 100%;
+}
+
+.containerForm label, input, textarea, button {
+    display: block;
+    width: 100%;
+}
+
+.containerForm label {
+    font-size: 14px;
+    color: #eee;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    border-radius: 8px;
+}
+
+.containerForm input, textarea {
+    font: inherit;
+    padding: 9px;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    transition: border-colo, box-shadow 0.2s;
+}
+
+.containerForm textarea {
+    min-height: 100px;
+    min-width: 130px;
+    resize: none;
+}
+
+.containerForm input:hover, textarea:hover {
+    outline: none;
+    border-color: #09d;
+    box-shadow: 0 0 0 2px #4dc8ff;
+    
+}
+
+.containerForm button {
+    padding: 5px;
+    cursor: pointer;
+    background: transparent;
+    color: #eee;
+    border: 1px solid #eee;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+}
+
+.containerForm button::before {
+    content: '';
+    position: absolute;
+    top: 0; 
+    right: 0;
+    background-color: #eee;
+    width: 0%;
+    height: 100%;
+    z-index: -1;
+    transition: all 0.6s ease;
+} 
+
+.containerForm button:hover {
+    color: #000080;
+    font-weight: bold;
+}
+
+.containerForm button:hover::before {
+    width: 100%;
+}
+
+
+/*---------- Página Creditos ----------*/
+
+.corpo {
+    overflow: scroll;
+}
+
+.containerImgs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 2vw;
+    padding: 0 1vw;
+    margin-top: 30px;
+}
+.itensImg { 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 340px;
+    height: 250px;
+
+    border: 10px solid #eee;
+    box-shadow: 7px 7px 7px #FFDB58;
+    flex-grow: 1;
+    transition: transfor, 0.5s linear;
+}
+
+.itensImg:hover {
+    transform: scale(1.1);
+     border: 10px solid #09d
+}
+
+.itensImg p {
+    position: absolute;
+    width: 380px;
+    height: 80px;
+    padding: 5px;
+
+    background: #000;
+
+    /*margin-top: 90px;*/
+    font-size: 14px;
+    font-weight: bold;
+    color: #eee;
+    text-decoration: none;
+}
+
+.itensImg span {
+    color: #cd1c18
+}
+
+.itensImg a:link { 
+    color: #39ff14;
+}
+
+.itensImg a:hover { 
+    color: #FF0;
+}
+
+.itensImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*---------- Página de Obrigado ----------*/
+
+.mainObri {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+
+    background: #000;
+}
+
+.textAgra {
+    font-size: 45px;
+    color: #eee;
+    margin-bottom: 30px;
+}
+
+.texComu {
+    color: #eee;
+    margin-bottom: 50px;
+}
+
+.backObri  {
+    padding: 15px 55px;
+    background: #eee;
+    text-decoration: none;
+    color: #09d;
+    font-size: 18px;
+    transition: all 0.5s;
+}
+
+.backObri:hover {
+    border-radius: 20px;
+    background: transparent;
+    color: #eee;  
+}
+
+/* --------- Responsividade -----------*/
+@media screen and (max-width: 768px) {
+    
+
+    header {
+        display: block;
+        height: 60%;
+    }
+
+    header nav {
+        margin-left: auto;
+        height: 80px;
+    }
+
+    .contatoContainer {
+        height: 500px;
+        margin-top: 0px;
+    }
+
+    .whatzappcontainer {
+        width: 300px;
+        height: 500px;
+        padding: 10px 3px;
+    }
+
+    .whatzappcontainer h2 {
+        font-size: 30px;
+    }
+
+}
