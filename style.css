@@ -187,7 +187,7 @@ header a:hover {
     background-color: #f4f0ec;
 
     width: 100%;
-    height: 40px;
+    height: 45px;
 }
 
 .footer {
@@ -600,5 +600,6 @@ header a:hover {
     .whatzappcontainer h2 {
         font-size: 30px;
     }
+
 
 }
