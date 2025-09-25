@@ -310,10 +310,6 @@ header a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    /*flex-direction: column;*/
-
-    /*padding-left: 1rem;
-    padding-right: 1rem;*/
     
     height: 100%;
     width: 100vw;   
@@ -329,7 +325,7 @@ header a:hover {
     flex-direction: column;
 
     width: 30%;
-    height: 500px;
+    height: 470px;
 
     border-radius: 10px;
     background-color: red;
@@ -349,7 +345,7 @@ header a:hover {
     position: relative;
 
     img {
-        width: 42px;
+        width: 48px;
         height: 42px; 
     }
 }
@@ -603,4 +599,5 @@ header a:hover {
 
 
 }
+
 
